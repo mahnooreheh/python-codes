@@ -1,10 +1,10 @@
-# 1st input: enter height in meters e.g: 1.65
-height = input()
-# 2nd input: enter weight in kilograms e.g: 72
-weight = input()
-# 🚨 Don't change the code above 👆
 
-# Write your code below this line 👇
+height = input()
+weight = input()
+
+#converting types is imp as the original input is usually in string
+#question required float for height and int for weight and bmi 
+
 h1= float(height)**2
 w1= int(weight)
 bmi= int(w1/h1)
