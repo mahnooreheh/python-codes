@@ -1,5 +1,5 @@
 age = input()
 
-totalweeks= int(90*52)
-weeksleft= int(totalweeks-(int(age)*52))
+totalweeks= 90*52
+weeksleft= totalweeks-int(age)*52
 print(f"You have {weeksleft} weeks left.")
