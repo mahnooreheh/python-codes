@@ -1,0 +1,5 @@
+import random
+
+rndm = random.randint(0,len(names)-1)
+
+print(f"{names[rndm]} is going to buy the meal today!")
