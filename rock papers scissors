@@ -1,0 +1,48 @@
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+choice=int(input("What do u choose? Type 0 for rock, 1 for paper or 2 for scissors."))
+if choice==0:
+    print(rock)
+if choice==1:
+    print(paper)
+if choice==2:
+    print(scissors)
+print("Computer chose:\n")
+
+import random
+comp= int(random.randint(0,2))
+if  comp==0:
+    print(rock)
+if comp==1:
+    print(paper)
+if comp==2:
+    print(scissors)
+
+if (choice==0 and comp==1) or (choice ==1 and comp==2) or (choice==2 and comp==0):
+    print("You lose!")
+else:
+    print("You Win!")
