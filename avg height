@@ -1,0 +1,16 @@
+# Input a Python list of student heights
+student_heights = input().split()
+for n in range(0, len(student_heights)):
+  student_heights[n] = int(student_heights[n])
+# 🚨 Don't change the code above 👆
+avg=0
+total=0
+occ=0
+# Write your code below this row 👇
+for x in student_heights:
+  total+=x
+  occ+=1
+avg= round(total / occ) 
+avg= int(avg)
+
+print(f"total height = {total}\nnumber of students = {occ}\naverage height = {avg}")
