@@ -1,0 +1,37 @@
+import random
+import hangman_art
+import hangman_words
+word_list = hangman_words.word_list
+chosen_word = random.choice(word_list)
+#Testing code
+stages= hangman_art.stages
+print(hangman_art.logo)
+print(f'Pssst, the solution is {chosen_word}.')
+display=[]
+display=['_']*len(chosen_word)
+# for i in chosen_word:
+#     if guess==i:
+#         ind= chosen_word.index(i)
+#         display[ind]=i
+# print(display)
+#TODO-1: - Use a while loop to let the user guess again. The loop should only stop once the user has guessed all the letters in the chosen_word and 'display' has no more blanks ("_"). Then you can tell the user they've won.
+print(display)
+lives=6
+ij=0
+while '_' in display:
+    guess= input("Guess a letter:").lower()
+    if guess in chosen_word:
+        for index in range(len(chosen_word)):
+            if guess==chosen_word[index]:
+                display[index]= guess
+        print(display)
+    if guess in display:
+        print("You've already guessed!")
+    if guess not in chosen_word:
+        lives-=1
+        print(f"Oh! Your lives reduced to: {lives}")
+        print(stages[lives])
+    if lives==0:
+        print("You lose")
+        break
+print("You win")
