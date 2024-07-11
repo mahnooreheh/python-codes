@@ -1,0 +1,21 @@
+student_scores = {
+  "Harry": 81,
+  "Ron": 78,
+  "Hermione": 99, 
+  "Draco": 74,
+  "Neville": 62,
+}
+# 🚨 Don't change the code above 👆
+# TODO-1: Create an empty dictionary called student_grades.
+studentgrades={}
+for i in student_scores:
+  if (student_scores[i]>=91) and (student_scores[i]<=100):
+    studentgrades[i]="Outstanding"
+  elif (student_scores[i]>=81) and (student_scores[i]<=90):
+    studentgrades[i]="Exceeds Expectations"
+  elif (student_scores[i]>=71) and (student_scores[i]<=80):
+    studentgrades[i]="Acceptable"
+  else:
+    studentgrades[i]="Fail"
+# 🚨 Don't change the code below 👇
+print(studentgrades)
