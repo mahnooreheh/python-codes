@@ -1,0 +1,28 @@
+from replit import clear
+import art
+print(art.logo)
+print("Welcome to the secret auction program!\n")
+name= input("Whats your name? ")
+bid= int(input("Whats your bid?$"))
+choice= input("Are there any other biders? yes or no? ")
+dict=[]
+dict.append({"name": name, "bid":bid})
+while choice=="yes":
+    clear()
+    name= input("Whats your name? ")
+    bid= int(input("Whats your bid?$"))
+    choice= input("Are there any other biders? yes or no? ")
+    dict.append({"name": name, "bid":bid})
+highest=0
+nama=0
+for i in range(len(dict)-1):
+    if (dict[i]["bid"]>dict[i+1]["bid"]) and dict[i]["bid"]>dict[i-1]["bid"] and dict[i]["bid"]>highest:
+        highest=dict[i]["bid"]
+        nama=dict[i]["name"]
+    elif dict[i]["bid"]<dict[i+1]["bid"]and dict[i+1]["bid"]>highest :
+        highest= dict[i+1]["bid"]
+        nama=dict[i+1]["name"]
+    elif dict[i]["bid"]<dict[i-1]["bid"] and dict[i-1]["bid"]>highest:
+        highest=dict[i-1]["bid"]
+        nama=dict[i-1]["name"]
+print(f"{nama} is the winner who bid {highest}")
