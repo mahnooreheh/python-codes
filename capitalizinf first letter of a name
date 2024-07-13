@@ -1,0 +1,15 @@
+name=[]
+name1=[]
+def my_function(f_name, l_name):
+    name.append(f_name[0].upper())
+    for i in range(1, len(f_name)):
+        name.append(f_name[i].lower())
+    name1.append(l_name[0].upper())
+    for i in range(1, len(l_name)):
+        name1.append(l_name[i].lower())
+    fullname= ''.join(name)+' '+''.join(name1)
+    return fullname
+n= input("Whats your first name?")
+n1= input("whats your last name?")
+nn=my_function(n, n1)
+print(nn)
