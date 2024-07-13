@@ -1,6 +1,8 @@
 name=[]
 name1=[]
 def my_function(f_name, l_name):
+    f_name.lower()
+    l_name.lower()
     name.append(f_name[0].upper())
     for i in range(1, len(f_name)):
         name.append(f_name[i].lower())
