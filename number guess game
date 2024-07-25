@@ -1,0 +1,32 @@
+gameover=False
+import random
+number= random.randint(1,101)
+print(number)
+def turns(chances):
+    chance= chances
+    global gameover
+    global number
+    while gameover==False and chance!=0:
+        num=int(input("Make a guess:"))
+        if num==number:
+            print("You guessed it right!")
+            gameover=True
+            break 
+        elif num>number:
+            print(f"Too high, guess again. You have {chance-1} attemps.")
+            chance-=1
+        elif num<number:
+            print(f"Too low, guess again. You have {chance-1} attemps.")
+            chance-=1
+    
+print("Welcome to the Number Guessing Game!\nPsst, I'm thinking of a number between 1 and 100.")
+
+diff= input("Choose a difficulty, easy or hard ")
+chances=0
+if diff=="easy":
+    chances=10
+elif diff=="hard":
+    chances=5
+
+print(f"You have {chances} attempts remaining to guess the number.")
+turns(chances)
