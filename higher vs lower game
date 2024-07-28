@@ -1,0 +1,34 @@
+import art
+print(art.logo)
+import game_data
+import random
+score=0
+gameend=False
+result=True
+def compare(a, b, choice):
+  global score
+  while gameend==False:
+    if (a>b and choice=='A') or (b>a and choice=='B'):
+      score+=1
+      return True
+    else:
+      return False
+
+while gameend==False:
+  
+  randpers= random.choice(game_data.data)
+  randpers2= random.choice(game_data.data)
+  print(f"Compare A: {randpers['name']}, a {randpers['description']}, from  {randpers['country']}")
+  print(art.vs)
+  if randpers==randpers2:
+    randpers2= random.choice(game_data.data)
+
+  
+  print(f"Compare B: {randpers2['name']}, a {randpers2['description']}, from  {randpers2['country']}")
+  choice = input("Who has more followers? A or B: ")
+  result=compare(int(randpers['follower_count']), int(randpers2['follower_count']), choice)
+  if result== False:
+    print(f"You lose! Your score is {score}\n")
+    gameend=True
+  else:
+    print(f"Good Job! Your score is {score}\n")
