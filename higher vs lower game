@@ -18,14 +18,14 @@ while gameend==False:
   
   randpers= random.choice(game_data.data)
   randpers2= random.choice(game_data.data)
-  print(f"Compare A: {randpers['name']}, a {randpers['description']}, from  {randpers['country']}")
-  print(art.vs)
   if randpers==randpers2:
     randpers2= random.choice(game_data.data)
 
-  
+  print(f"Compare A: {randpers['name']}, a {randpers['description']}, from  {randpers['country']}")
+  print(art.vs)
   print(f"Compare B: {randpers2['name']}, a {randpers2['description']}, from  {randpers2['country']}")
-  choice = input("Who has more followers? A or B: ")
+  
+  choice = input("Who has more followers? A or B: ").upper()
   result=compare(int(randpers['follower_count']), int(randpers2['follower_count']), choice)
   if result== False:
     print(f"You lose! Your score is {score}\n")
