@@ -1,0 +1,104 @@
+import os
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+penny = 0
+cent = 0
+dimes = 0
+nickles = 0
+tcost = 0
+change = 0
+water = 1000
+milk = 500
+coffee = 300
+totalmoney = 0
+def check_availability(og, recipe):
+    if og < recipe:
+        print("Not enough resources")
+def changeingredients(choicee):
+    global water, coffee, milk
+    menu_water = MENU[choicee]['ingredients']['water']
+    menu_coffee = MENU[choicee]['ingredients']['coffee']
+    water -= menu_water
+    coffee -= menu_coffee
+    if choicee != "espresso" :
+        menu_milk = MENU[choicee]['ingredients']['milk']
+        milk -= menu_milk
+        check_availability(milk, menu_milk)
+    check_availability(water, menu_water)
+    check_availability(coffee, menu_coffee)
+
+def showingredients(choic):
+    if choic == 'yes':
+        return f"Water: {water}l\nCoffee: {coffee}gm\nMilk: {milk}l\nMoney: ${round(totalmoney,2)}"
+    else:
+        return "okay"
+def moneystuff():
+    print("Insert your coins please")
+    global penny, nickles, dimes, cent
+    penny = int(input("Penny: "))/100
+    nickles = int(input("Nickle: "))/20
+    cent = int(input("Cent: "))/100
+    dimes = int(input("Dime: "))/10
+def money(choicee):
+    global water, coffee, milk
+    print(f"The cost of {choicee} is: ${MENU[choicee]['cost']}")
+    global tcost, change, totalmoney
+    moneystuff()
+    tcost = float(penny+nickles+dimes+cent)
+    totalmoney += tcost
+    coffeecost = float(MENU[choicee]['cost'])
+    change = float(tcost - coffeecost)
+    change = round(change, 2)
+    if change == 0:
+        return f"Here's your {choicee} :) "
+    elif change<0:
+        totalmoney-=tcost
+        water += MENU[choicee]['ingredients']['water']
+        coffee += MENU[choicee]['ingredients']['coffee']
+        if choicee != "espresso":
+            milk+=MENU[choicee]['ingredients']['milk']
+        return f"Not enough money! The cost is ${coffeecost}.\nMoney refunded!"
+    elif change>=1:
+        totalmoney-=change
+        return f"Here's your {choicee} :) and Here's your change: ${change}"
+
+
+turnmachine = True
+while turnmachine != False:
+    choice = str(input("What would you like to have? (latte/cappuccino/espresso) "))
+    ans = money(choice)
+    print(ans)
+    changeingredients(choice)
+    choice1 = str(input("Do you want to take a look at the report? ")).lower()
+    ans1 = showingredients(choice1)
+    print(ans1)
+    choice3 = str(input("Do you want to turn off the machine?"))
+    if choice3 == 'yes':
+        turnmachine = False
+    else:
+
+        turnmachine = True
+        os.system('clear')
