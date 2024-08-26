@@ -1,0 +1,19 @@
+import turtle, random
+from turtle import Turtle, Screen
+
+#for making 8 shapes
+colors = ["purple", "yellow","orange","blue","pink","black","red","green"]
+side = 4
+while side <= 8:
+    i = 0
+    angle = 360 / side
+    for i in range(0, side):
+
+        i += 1
+        turtle.right(angle)
+        turtle.forward(100)
+    side += 1
+    turtle.color(colors[i])
+
+my_screen = Screen()
+my_screen.exitonclick()
