@@ -1,0 +1,32 @@
+from turtle import Turtle, Screen
+tim = Turtle()
+tim.shape("turtle")
+tim.color("purple")
+def move():
+    tim.forward(10)
+def left():
+    tim.left(10)
+def right():
+    tim.right(10)
+def backwards():
+    tim.back(10)
+def clearsc():
+    tim.home()#for bringing the turtle to original position
+    tim.clear()
+
+
+my_screen = Screen()
+my_screen.listen() #listen method allows the program to detect mouse/keyboard clicks
+my_screen.onkey(key="w",fun=move) #is se jo key dabao ge uska asar hoga
+my_screen.onkey(key="s", fun=backwards)
+my_screen.onkey(key="a", fun=left)
+my_screen.onkey(key="d", fun=right)
+my_screen.onkey(key="c", fun=clearsc)
+
+
+
+
+
+
+#NOTE: donot write move() in the fun jagah as wo function phir usi waqt call hojayega
+my_screen.exitonclick()
